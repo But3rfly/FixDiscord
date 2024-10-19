@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeSync - решение для обхода блокировок Discord и YouTube в России.">
+    <meta name="keywords" content="DeSync, обход блокировки, Discord, YouTube, VPN, прокси, Россия, скачать фикс, обход, обход Discord в России, обход ютуба в России">
+    <meta name="author" content="DeSync Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="DeSync - Обход блокировок Discord и YouTube">
+    <meta property="og:description" content="DeSync помогает обходить блокировки в России для сервисов Discord и YouTube.">
+    <meta property="og:url" content="https://but3rfly.github.io/FixDiscord/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="DeSync - Обход блокировок Discord и YouTube">
+    <meta name="twitter:description" content="Простой и надежный инструмент для обхода блокировок.">
+    <title>DeSync - Обход блокировок</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    
+    
+       /*  xD   */
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="fade-in">DeSync</h1>
+            <p class="fade-in">Ваш надежный фикс для обхода блокировок Discord и YouTube.</p>
+        </div>
+    </header>
+    <main>
+        <section class="features">
+            <h2 class="slide-in">Особенности</h2>
+            <ul class="feature-list">
+                <li class="fade-in"><i class="fab fa-discord"></i> Обходит блокировку Discord в России.</li>
+                <li class="fade-in"><i class="fab fa-youtube"></i> Обходит блокировку YouTube в России.</li>
+                <li class="fade-in"><i class="fas fa-cogs"></i> Простота установки и использования.</li>
+                <li class="fade-in"><i class="fas fa-sync"></i> Поддержка обновлений.</li>
+            </ul>
+        </section>
+
+        <section class="instructions">
+            <h2 class="slide-in">Инструкция по установке</h2>
+            <ul class="instruction-list fade-in">
+                <li>1. Нажмите на кнопку ниже, чтобы скачать архив с фиксом.</li>
+                <li>2. Создайте новую папку на вашем компьютере и распакуйте туда архив.</li>
+                <li>3. Запустите фикс — все необходимые действия он выполнит самостоятельно.</li>
+            </ul>
+            <p class="completion-text">Готово! Теперь вы снова сможете свободно пользоваться YouTube и Discord.</p>
+        </section>
+        
+
+        <section class="download">
+            <h2 class="slide-in">Скачать DeSync</h2>
+            <p class="fade-in">Нажмите на кнопку ниже, чтобы скачать наш фикс.</p>
+            <a id="download-link" class="download-button glow">Скачать</a>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 DeSync. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.3}s`;
+                el.style.animation = 'fadeIn 1s ease forwards';
+            });
+
+            const slideInElements = document.querySelectorAll('.slide-in');
+            slideInElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.3}s`;
+                el.style.animation = 'slideIn 0.5s ease forwards';
+            });
+
+            const downloadButton = document.getElementById('download-link');
+            downloadButton.addEventListener('click', function() {
+                const fileUrl = 'https://github.com/But3rfly/DiscordFix/releases/latest/download/FixDiscord.zip'; // Ссылка на ваш файл
+                const a = document.createElement('a');
+                a.href = fileUrl;
+                a.click();
+            });
+        });
+    </script>
+</body>
+</html>
