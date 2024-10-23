@@ -28,10 +28,10 @@
         <section class="features">
             <h2 class="slide-in">Особенности</h2>
             <ul class="feature-list">
-                <li class="fade-in"><i class="fab fa-discord"><span></i> Обходит блокировку Discord в России.</li></span>
-                <li class="fade-in"><i class="fab fa-youtube"><span></i> Обходит блокировку YouTube в России.</li></span>
-                <li class="fade-in"><i class="fas fa-cogs"><span></i>  Простота установки и использования.</li></span>
-                <li class="fade-in"><i class="fas fa-sync"><span></i>  Поддержка обновлений.</li></span>
+                <li class="fade-in"><i class="fab fa-discord"></i> Обходит блокировку Discord в России.</li>
+                <li class="fade-in"><i class="fab fa-youtube"></i> Обходит блокировку YouTube в России.</li>
+                <li class="fade-in"><i class="fas fa-cogs"></i> Простота установки и использования.</li>
+                <li class="fade-in"><i class="fas fa-sync"></i> Поддержка обновлений.</li>
             </ul>
         </section>
 
@@ -51,23 +51,17 @@
             <a id="download-link" class="download-button glow">Скачать</a>
         </section>
 
-        <section class="bug-report-container">
-            <form id="bug-report-form" class="bug-report" method="post">
-                <h2>Сообщить об ошибке</h2>
-                <p>Если вы столкнулись с проблемой, заполните форму ниже:</p>
-                <label for="email">Ваш Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="description">Описание проблемы:</label>
-                <textarea id="description" name="description" rows="5" required></textarea>
-
-                <input type="submit" value="Отправить">
-            </form>
-            <div id="notification" class="notification"></div>
-        </section>
     </main>
     <footer>
         <p>© 2024 DeSync. Все права защищены.</p>
+    
+        <section class="contact-info">
+            <div class="contact-icons">
+                <a href="https://t.me/But3rflyyy" target="_blank">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+            </div>
+        </section>
     </footer>
 
     <script>
@@ -86,41 +80,12 @@
     
             const downloadButton = document.getElementById('download-link');
             downloadButton.addEventListener('click', function() {
-                const fileUrl = 'https://github.com/But3rfly/DiscordFix/releases/latest/download/FixDiscord.zip'; // Ссылка на ваш файл
+                const fileUrl = 'https://github.com/But3rfly/DiscordFix/releases/latest/download/FixDiscord.zip'; 
                 const a = document.createElement('a');
                 a.href = fileUrl;
                 a.click();
             });
-    
-            const form = document.getElementById('bug-report-form');
-            form.addEventListener('submit', async function(event) {
-                event.preventDefault(); 
-    
-                const formData = new FormData(form);
-                try {
-                    await fetch('http://127.0.0.1:5000/send_bug_report', {
-                        method: 'POST',
-                        body: formData
-                    });
-                } catch (error) {
-                    
-
-
-                }
-    
-           
-                const notification = document.getElementById('notification');
-                notification.textContent = 'В разработке...';
-
-    
-                
-                notification.style.opacity = '1';
-                setTimeout(() => {
-                    notification.style.opacity = '0';
-                }, 3000); 
-            });
         });
     </script>
-    
 </body>
 </html>
