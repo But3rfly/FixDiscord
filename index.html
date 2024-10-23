@@ -98,7 +98,7 @@
     
                 const formData = new FormData(form);
                 try {
-                    await fetch('http://127.0.0.1/send_bug_report', {
+                    await fetch('http://127.0.0.1:5000/send_bug_report', {
                         method: 'POST',
                         body: formData
                     });
@@ -111,7 +111,7 @@
            
                 const notification = document.getElementById('notification');
                 notification.textContent = 'В разработке...';
-                
+
     
                 
                 notification.style.opacity = '1';
