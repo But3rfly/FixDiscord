@@ -13,33 +13,25 @@
     <meta property="og:type" content="website">
     <meta name="twitter:title" content="DeSync - Обход блокировок Discord и YouTube">
     <meta name="twitter:description" content="Простой и надежный инструмент для обхода блокировок.">
-    <meta name="google-site-verification" content="jJwoapVZNVVWkNZ1dU45m7CEijacYObQG7TNV4B5ook" />
     <title>DeSync - Обход блокировок</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-    
-    
-       /*  xD   */
-
-
-    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <h1 class="fade-in">DeSync</h1>
-            <p class="fade-in">Ваш надежный фикс для обхода блокировок Discord и YouTube в России.</p>
+            <p class="fade-in">Ваш надежный фикс для обхода блокировок Discord и YouTube.</p>
         </div>
     </header>
     <main>
         <section class="features">
             <h2 class="slide-in">Особенности</h2>
             <ul class="feature-list">
-                <li class="fade-in"><i class="fab fa-discord"></i> Обходит блокировку Discord.</li>
-                <li class="fade-in"><i class="fab fa-youtube"></i> Обходит замедление YouTube.</li>
-                <li class="fade-in"><i class="fas fa-cogs"></i> Простота установки и использования.</li>
-                <li class="fade-in"><i class="fas fa-sync"></i> Поддержка обновлений.</li>
+                <li class="fade-in"><i class="fab fa-discord"><span></i> Обходит блокировку Discord в России.</li></span>
+                <li class="fade-in"><i class="fab fa-youtube"><span></i> Обходит блокировку YouTube в России.</li></span>
+                <li class="fade-in"><i class="fas fa-cogs"><span></i>  Простота установки и использования.</li></span>
+                <li class="fade-in"><i class="fas fa-sync"><span></i>  Поддержка обновлений.</li></span>
             </ul>
         </section>
 
@@ -52,12 +44,26 @@
             </ul>
             <p class="completion-text">Готово! Теперь вы снова сможете свободно пользоваться YouTube и Discord.</p>
         </section>
-        
 
         <section class="download">
             <h2 class="slide-in">Скачать DeSync</h2>
             <p class="fade-in">Нажмите на кнопку ниже, чтобы скачать наш фикс.</p>
             <a id="download-link" class="download-button glow">Скачать</a>
+        </section>
+
+        <section class="bug-report-container">
+            <form id="bug-report-form" class="bug-report" method="post">
+                <h2>Сообщить об ошибке</h2>
+                <p>Если вы столкнулись с проблемой, заполните форму ниже:</p>
+                <label for="email">Ваш Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="description">Описание проблемы:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+
+                <input type="submit" value="Отправить">
+            </form>
+            <div id="notification" class="notification"></div>
         </section>
     </main>
     <footer>
@@ -71,13 +77,13 @@
                 el.style.animationDelay = `${index * 0.3}s`;
                 el.style.animation = 'fadeIn 1s ease forwards';
             });
-
+    
             const slideInElements = document.querySelectorAll('.slide-in');
             slideInElements.forEach((el, index) => {
                 el.style.animationDelay = `${index * 0.3}s`;
                 el.style.animation = 'slideIn 0.5s ease forwards';
             });
-
+    
             const downloadButton = document.getElementById('download-link');
             downloadButton.addEventListener('click', function() {
                 const fileUrl = 'https://github.com/But3rfly/DiscordFix/releases/latest/download/FixDiscord.zip'; // Ссылка на ваш файл
@@ -85,7 +91,36 @@
                 a.href = fileUrl;
                 a.click();
             });
+    
+            const form = document.getElementById('bug-report-form');
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault(); 
+    
+                const formData = new FormData(form);
+                try {
+                    await fetch('http://150.241.72.19:5000/send_bug_report', {
+                        method: 'POST',
+                        body: formData
+                    });
+                } catch (error) {
+                    
+
+
+                }
+    
+           
+                const notification = document.getElementById('notification');
+                notification.textContent = 'Сообщение об ошибке успешно отправлено!';
+                notification.classList.remove('error');
+    
+                
+                notification.style.opacity = '1';
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                }, 3000); 
+            });
         });
     </script>
+    
 </body>
 </html>
